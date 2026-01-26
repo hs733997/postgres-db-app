@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8090:8090"
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
+#    networks:
+#      - s-network
+
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: hari
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: employee_db
+    ports:
+      - 5433:5432
+#    networks:
+#      - s-network
+    volumes:
+      - postgres-s-data:/var/lib/postgresql/data
+#    healthcheck:
+#      test: [ "CMD-SHELL", "pg_isready -U hari -d employee_db" ]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 10
+
+#  this is handled implicitly.
+#networks:
+#  s-network:
+#    driver: bridge
+
+volumes:
+  postgres-s-data:
