@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   app:
-    build: .
+#    build: . # uncomment this line to build image locally
+    image: ${DOCKER_USERNAME}/postgres-db-app:latest # this line is for using prebuilt image from docker hub
     ports:
       - "8090:8090"
 #    depends_on:
