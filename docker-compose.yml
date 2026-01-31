@@ -6,6 +6,8 @@ services:
     image: ${DOCKER_USERNAME}/postgres-db-app:latest # this line is for using prebuilt image from docker hub
     ports:
       - "8090:8090"
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
 #    depends_on:
 #      postgres:
 #        condition: service_healthy
