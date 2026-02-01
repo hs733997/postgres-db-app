@@ -1,6 +1,6 @@
 server:
   port: 8090
-
+  address: 0.0.0.0    #accept traffic on all interfaces
 spring:
   profiles:
     active: ${SPRING_PROFILES_ACTIVE}
